@@ -97,6 +97,9 @@ https://github.com/user-attachments/assets/c1cf9b05-009f-4b19-a846-022460ecb540
 
 **Screen Recording**: 
 
+https://github.com/user-attachments/assets/95e80877-70db-4231-8829-bca858519249
+
+
 ---
 
 ### 10. Dashboard with Travel & Financial Planner 📋✉️
