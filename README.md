@@ -59,6 +59,9 @@ https://github.com/user-attachments/assets/8c8d2ea8-ea2f-4cee-993e-c274dab31cd4
 
 **Screen Recording**: 
 
+https://github.com/user-attachments/assets/dc392941-8517-494c-ae9f-4a72b829bbe9
+
+
 ---
 
 ### 7. Driver Safety QR 🔑🏍️
