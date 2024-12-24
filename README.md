@@ -20,6 +20,8 @@ Welcome to TravelX, a next-generation platform transforming the travel and trans
 
 **Screen Recording**: 
 
+https://github.com/user-attachments/assets/55f86a99-0675-4d89-bd4b-8e3e54548778
+
 ---
 
 ### 3. Offline On-Device AI 🔧📱
