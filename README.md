@@ -76,6 +76,9 @@ https://github.com/user-attachments/assets/dc392941-8517-494c-ae9f-4a72b829bbe9
 
 **Screen Recording**: 
 
+https://github.com/user-attachments/assets/c3447be1-f2f6-4437-afb3-ef195fce566c
+
+
 ---
 
 ### 8. SOS Alert Functionality 🚑⛔️
