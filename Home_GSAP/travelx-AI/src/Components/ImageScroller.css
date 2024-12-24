@@ -1,0 +1,21 @@
+.image-scroller-container {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  z-index: 1000;
+  display: flex;
+  justify-content: center; /* Center the images horizontally */
+  gap: 100px; /* Space between images */
+  background: transparent;
+}
+
+.image-scroller {
+  display: flex;
+  align-items: center;
+}
+
+.image-scroller img {
+  height: 100px; /* Icon size */
+  flex-shrink: 0; /* Prevent shrinking */
+}

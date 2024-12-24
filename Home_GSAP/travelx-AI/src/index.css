@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .carousel-container .control-dots {
+      @apply absolute bottom-[-12px]; /* Moves the dots lower */
+    
+    }
+  }
+
+/* styles.css */
+.input-container {
+    position: relative;
+  }
+  
+  .input-field {
+    width: 100%;
+    border-bottom: 2px solid red;
+    outline: none;
+    padding: 1.5rem 0.5rem 0.5rem 0.5rem; /* Adjust padding to create space for the label */
+    transition: padding 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .input-field::placeholder {
+    color: transparent; /* Hide placeholder text */
+    transition: all 0.2s ease; /* Smooth transition for the placeholder */
+  }
+  
+  .input-field:focus::placeholder {
+    color: transparent; /* Hide the placeholder text when input is focused */
+  }
+  
+  .input-field:focus {
+    border-bottom-color: blue; /* Change border color on focus */
+    padding-top: 1rem; /* Adjust padding when focused */
+  }
+  
+  .input-field:not(:placeholder-shown) {
+    padding-top: 1rem; /* Keep padding-top when input has text */
+  }
+  
+  .input-label {
+    position: absolute;
+    top: 0.85rem; /* Position label above input */
+    left: 0.5rem; /* Adjust horizontal position */
+    font-size: 0.75rem; /* Smaller font size */
+    color: gray;
+    transition: all 0.2s ease; /* Smooth transition for label */
+  }
+  
+  .input-field:focus + .input-label,
+  .input-field:not(:placeholder-shown) + .input-label {
+    top: -0.5rem; /* Move label up */
+    font-size: 0.6rem; /* Smaller font size when input is focused or has text */
+    color: blue; /* Change color when focused */
+  }
+  
