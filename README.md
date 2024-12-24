@@ -47,6 +47,8 @@ https://github.com/user-attachments/assets/4ac0a868-9187-40aa-88c7-5b05408ad9a8
 
 **Screen Recording**: 
 
+https://github.com/user-attachments/assets/8c8d2ea8-ea2f-4cee-993e-c274dab31cd4
+
 ---
 
 ### 6. Disaster Mapping ⚡️🌍
