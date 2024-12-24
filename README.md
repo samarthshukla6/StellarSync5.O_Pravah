@@ -12,6 +12,9 @@ Welcome to TravelX, a next-generation platform transforming the travel and trans
 
 **Screen Recording**: 
 
+https://github.com/user-attachments/assets/b5b69570-bf85-4375-8315-3c40ea245440
+
+
 ---
 
 ### 2. Fine-Tuned LLaMA 3.1B Model 🤖
