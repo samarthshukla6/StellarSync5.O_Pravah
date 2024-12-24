@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox - Travel Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Header */
+        header {
+            background-color: #3E8E41;
+            color: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav a {
+            margin-left: 20px;
+            color: white;
+            font-size: 16px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #2C6B2F;
+        }
+
+        nav a.active {
+            background-color: #2C6B2F;
+        }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul li a {
+            color: #333;
+            font-size: 16px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #e8e8e8;
+        }
+
+        .sidebar ul li a.active {
+            font-weight: bold;
+            background-color: #e8f7e8;
+        }
+
+        /* Inbox Section */
+        .inbox-section {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .inbox-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .inbox-header h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .btn-compose {
+            background-color: #3E8E41;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-compose:hover {
+            background-color: #2C6B2F;
+        }
+
+        .inbox-list ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .message-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .message-item:hover {
+            background-color: #f8f8f8;
+        }
+
+        .message-item a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #333;
+        }
+
+        .message-item.unread {
+            background-color: #e8f7e8;
+        }
+
+        .message-item .sender {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .message-item .subject {
+            margin-left: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .message-item .date {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3E8E41;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Travel Management">
+        </div>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="bookings.html">Bookings</a>
+            <a href="inbox.html" class="active">Inbox</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul>
+                <li><a href="inbox.html" class="active">Inbox</a></li>
+                <li><a href="sent.html">Sent</a></li>
+                <li><a href="trash.html">Trash</a></li>
+                <li><a href="bookings.html">My Bookings</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Inbox Section -->
+        <section class="inbox-section">
+            <div class="inbox-header">
+                <h2>Your Messages</h2>
+                <button class="btn-compose">Compose Message</button>
+            </div>
+
+            <div class="inbox-list">
+                <ul>
+                    <!-- Inbox Message 1 -->
+                    <li class="message-item unread">
+                        <a href="message-details.html">
+                            <span class="sender">John Doe</span>
+                            <span class="subject">Flight Booking Confirmation</span>
+                            <span class="date">Dec 22, 2024</span>
+                        </a>
+                    </li>
+                    <!-- Inbox Message 2 -->
+                    <li class="message-item">
+                        <a href="message-details.html">
+                            <span class="sender">Travel Agency</span>
+                            <span class="subject">Hotel Reservation Details</span>
+                            <span class="date">Dec 21, 2024</span>
+                        </a>
+                    </li>
+                    <!-- Inbox Message 3 -->
+                    <li class="message-item unread">
+                        <a href="message-details.html">
+                            <span class="sender">Anna Smith</span>
+                            <span class="subject">Request for Travel Plan</span>
+                            <span class="date">Dec 20, 2024</span>
+                        </a>
+                    </li>
+                    <!-- Inbox Message 4 -->
+                    <li class="message-item">
+                        <a href="message-details.html">
+                            <span class="sender">Booking Support</span>
+                            <span class="subject">Payment Failed for Your Flight</span>
+                            <span class="date">Dec 18, 2024</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Sent Section (Dummy Data) -->
+        <section class="inbox-section" id="sent">
+            <div class="inbox-header">
+                <h2>Sent Messages</h2>
+            </div>
+
+            <div class="inbox-list">
+                <ul>
+                    <li class="message-item">
+                        <a href="message-details.html">
+                            <span class="sender">You</span>
+                            <span class="subject">Flight Cancellation Request</span>
+                            <span class="date">Dec 15, 2024</span>
+                        </a>
+                    </li>
+                    <li class="message-item">
+                        <a href="message-details.html">
+                            <span class="sender">You</span>
+                            <span class="subject">Hotel Booking Inquiry</span>
+                            <span class="date">Dec 10, 2024</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Trash Section (Dummy Data) -->
+        <section class="inbox-section" id="trash">
+            <div class="inbox-header">
+                <h2>Trash</h2>
+            </div>
+
+            <div class="inbox-list">
+                <ul>
+                    <li class="message-item">
+                        <a href="message-details.html">
+                            <span class="sender">You</span>
+                            <span class="subject">Old Booking Confirmation</span>
+                            <span class="date">Dec 5, 2024</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Bookings Section (Dummy Data) -->
+        <section class="inbox-section" id="bookings">
+            <div class="inbox-header">
+                <h2>Your Bookings</h2>
+            </div>
+
+            <div class="inbox-list">
+                <ul>
+                    <li class="message-item">
+                        <a href="booking-details.html">
+                            <span class="sender">Flight Booking</span>
+                            <span class="subject">Flight to Paris</span>
+                            <span class="date">Dec 1, 2024</span>
+                        </a>
+                    </li>
+                    <li class="message-item">
+                        <a href="booking-details.html">
+                            <span class="sender">Hotel Reservation</span>
+                            <span class="subject">Hotel in Paris</span>
+                            <span class="date">Nov 25, 2024</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Settings Section (Dummy Data) -->
+        <section class="inbox-section" id="settings">
+            <div class="inbox-header">
+                <h2>Settings</h2>
+            </div>
+
+            <div class="inbox-list">
+                <ul>
+                    <li class="message-item">
+                        <a href="settings-details.html">
+                            <span class="sender">Profile Settings</span>
+                            <span class="subject">Change Profile Picture</span>
+                            <span class="date">Nov 30, 2024</span>
+                        </a>
+                    </li>
+                    <li class="message-item">
+                        <a href="settings-details.html">
+                            <span class="sender">Account Settings</span>
+                            <span class="subject">Update Payment Info</span>
+                            <span class="date">Nov 28, 2024</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Travel Management. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelAura - Tour Management</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.21/jspdf.plugin.autotable.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .report {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>TravelAura - Tour Management</h1>
+    <div class="container">
+        <div class="form-group">
+            <label for="company">Select Travel Company</label>
+            <select id="company">
+                <option value="GoTravel">GoTravel</option>
+                <option value="Wanderlust">Wanderlust</option>
+                <option value="GlobeTrek">GlobeTrek</option>
+                <option value="Voyage Adventures">Voyage Adventures</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="destination">Destination</label>
+            <input type="text" id="destination" placeholder="Enter destination">
+        </div>
+
+        <div class="form-group">
+            <label for="package">Package Name</label>
+            <input type="text" id="package" placeholder="Enter package name">
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price per Person</label>
+            <input type="number" id="price" placeholder="Enter price per person">
+        </div>
+
+        <div class="form-group">
+            <label for="people">Number of People</label>
+            <input type="number" id="people" placeholder="Enter number of people">
+        </div>
+
+        <button onclick="addTransaction()">Add Booking</button>
+
+        <h2>Booking Records</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Company</th>
+                    <th>Destination</th>
+                    <th>Package</th>
+                    <th>People</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="transactionTable"></tbody>
+        </table>
+
+        <div class="report">
+            <button onclick="generateReport()">Download Report</button>
+        </div>
+    </div>
+
+    <script>
+        const bookings = [];
+
+        function addTransaction() {
+            const company = document.getElementById('company').value;
+            const destination = document.getElementById('destination').value;
+            const packageName = document.getElementById('package').value;
+            const price = parseFloat(document.getElementById('price').value);
+            const people = parseInt(document.getElementById('people').value);
+            const date = new Date().toLocaleString();
+
+            if (!destination || !packageName || people <= 0 || price <= 0) {
+                alert('Please enter valid details.');
+                return;
+            }
+
+            const total = price * people;
+            bookings.push({ date, company, destination, packageName, people, price, total });
+            updateTable();
+        }
+
+        function updateTable() {
+            const table = document.getElementById('transactionTable');
+            table.innerHTML = '';
+
+            bookings.forEach(booking => {
+                const row = `<tr>
+                    <td>${booking.date}</td>
+                    <td>${booking.company}</td>
+                    <td>${booking.destination}</td>
+                    <td>${booking.packageName}</td>
+                    <td>${booking.people}</td>
+                    <td>₹${booking.price.toFixed(2)}</td>
+                    <td>₹${booking.total.toFixed(2)}</td>
+                </tr>`;
+                table.innerHTML += row;
+            });
+        }
+
+        function generateReport() {
+            if (bookings.length === 0) {
+                alert('No bookings to generate a report.');
+                return;
+            }
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.text("TravelAura - Booking Report", 10, 10);
+
+            let startY = 20;
+            doc.autoTable({
+                head: [['Date', 'Company', 'Destination', 'Package', 'People', 'Price', 'Total']],
+                body: bookings.map(b => [
+                    b.date, b.company, b.destination, b.packageName, b.people, `₹${b.price.toFixed(2)}`, `₹${b.total.toFixed(2)}`
+                ]),
+                startY: startY
+            });
+
+            doc.save('travel_booking_report.pdf');
+        }
+    </script>
+</body>
+</html>

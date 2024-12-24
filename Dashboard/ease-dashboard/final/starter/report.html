@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Package List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0b3d91;
+            color: #f4f4f9;
+        }
+        header {
+            background: linear-gradient(45deg, #1e88e5, #4caf50);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #112244;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        .search-bar {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background: #112244;
+            color: #f4f4f9;
+        }
+        .search-bar button {
+            padding: 10px 15px;
+            background-color: #1e88e5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1565c0;
+        }
+        .package-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .package {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s;
+        }
+        .package:hover {
+            transform: scale(1.02);
+        }
+        .package h3 {
+            margin: 0 0 10px;
+            color: #64b5f6;
+        }
+        .package p {
+            margin: 5px 0;
+            color: #b0bec5;
+        }
+        .book-btn {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .book-btn:hover {
+            background-color: #388e3c;
+        }
+        #confirmationModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #1e293b;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+        }
+        #confirmationModal h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        #confirmationModal button {
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.6); 
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        #confirmationModal button:hover {
+            background-color: #0d47a1;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Explore Our Travel Packages</h1>
+        <p>Find your perfect getaway with our handpicked travel options.</p>
+    </header>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for a package by name or category">
+            <button onclick="searchPackage()">Search</button>
+        </div>
+        <div class="package-list" id="packageList"></div>
+    </div>
+
+    <div id="overlay"></div>
+    <div id="confirmationModal">
+        <h2>Do you want to book this package?</h2>
+        <button onclick="confirmBooking()">Yes</button>
+        <button onclick="closeModal()">No</button>
+    </div>
+
+    <script>
+        const packages = [
+            { id: 1, name: "Beach Paradise", category: "Luxury", duration: "5 days", price: "₹50,000" },
+            { id: 2, name: "Mountain Retreat", category: "Budget", duration: "3 days", price: "₹25,000" },
+            { id: 3, name: "Adventure Safari", category: "Adventure", duration: "7 days", price: "₹60,000" },
+            { id: 4, name: "City Explorer", category: "City", duration: "2 days", price: "₹15,000" },
+            { id: 5, name: "Desert Mirage", category: "Adventure", duration: "6 days", price: "₹40,000" },
+            { id: 6, name: "Island Getaway", category: "Luxury", duration: "4 days", price: "₹70,000" },
+            { id: 7, name: "Forest Escape", category: "Nature", duration: "5 days", price: "₹30,000" },
+            { id: 8, name: "Historical Journey", category: "History", duration: "3 days", price: "₹20,000" },
+            { id: 9, name: "Winter Wonderland", category: "Seasonal", duration: "6 days", price: "₹55,000" },
+            { id: 10, name: "Tropical Bliss", category: "Luxury", duration: "7 days", price: "₹85,000" },
+            { id: 11, name: "Cultural Immersion", category: "Culture", duration: "5 days", price: "₹35,000" },
+            { id: 12, name: "Seaside Serenity", category: "Relaxation", duration: "4 days", price: "₹45,000" }
+        ];
+
+        let selectedPackage = null;
+
+        function renderPackages(filter = '') {
+            const packageList = document.getElementById('packageList');
+            packageList.innerHTML = '';
+            packages
+                .filter(pkg => pkg.name.toLowerCase().includes(filter.toLowerCase()))
+                .forEach(pkg => {
+                    const packageHTML = `
+                        <div class="package">
+                            <h3>${pkg.name}</h3>
+                            <p>Category: ${pkg.category}</p>
+                            <p>Duration: ${pkg.duration}</p>
+                            <p>Price: ${pkg.price}</p>
+                            <button class="book-btn" onclick="openConfirmationModal('${pkg.name}')">Book Now</button>
+                        </div>`;
+                    packageList.innerHTML += packageHTML;
+                });
+        }
+
+        function openConfirmationModal(packageName) {
+            selectedPackage = packageName;
+            document.getElementById('confirmationModal').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function confirmBooking() {
+            document.getElementById('confirmationModal').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+            alert(`Booking Confirmed for ${selectedPackage}!`);
+        }
+
+        function closeModal() {
+            document.getElementById('confirmationModal').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function searchPackage() {
+            const searchInput = document.getElementById('search').value;
+            renderPackages(searchInput);
+        }
+
+        renderPackages();
+    </script>
+</body>
+</html>

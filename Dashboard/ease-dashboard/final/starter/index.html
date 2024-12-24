@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta cha$et="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="dist/css/main.css" />
+
+  <title>TravelX-AI</title>
+  <!-- Place Custom Favicon here-->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+</head>
+
+<body>
+
+  <header class="e-header e-header-fixed e-d-flex e-justify-between e-align-center">
+
+    <div class="e-container">
+
+      <div class="e-offset-12 e-offset-md-3 e-offset-lg-2">
+
+        <nav class="e-header__nav e-d-flex e-justify-between e-align-center">
+
+          <div class="e-header__left e-d-flex e-align-center e-mg-r-10 e-mg-r-0-md">
+
+            <div class="e-header__mobile e-mg-r-10 e-d-none-md">
+              <button type="button" class="e-icon-btn e-header__mobile--trigger" data-menu-target="main-menu">
+                <i class="ri-menu-2-line e-fs-16"></i>
+              </button>
+            </div>
+
+            <div  class="e-header__form">
+
+              <form class="e-form">
+                <div class="e-form__group">
+                  <input  type="text" class="e-form__input" placeholder="Search...">
+                  <i class="ri-search-line e-form__icon"></i>
+                </div>
+              </form>
+
+            </div>
+
+          </div><!-- .e-header__left ends -->
+
+          <ul class="e-header__navitems e-header__sidebar-md-3 e-header__sidebar-lg-2 e-pd-y-20" id="main-menu">
+
+            <li class="e-header__list">
+              <a href="index.html" class="e-header__link--logo e-pd-20 e-d-flex e-align-center e-justify-center">
+                <!-- <img src="images/ease-logo.svg" alt="Ease Dashboard logo"> -->
+              </a>
+            </li>
+
+            <li class="e-header__list e-dropdown">
+              <a href="" class="e-header__link e-active e-pd-20 e-d-flex e-align-center e-justify-between"
+                data-dropdown-target="submenu">
+                <span class="e-fs-14 e-d-flex e-align-center"><i
+                    class="ri-dashboard-line e-mg-r-10"></i>Dashboard</span>
+                <i class="ri-arrow-down-s-line"></i>
+              </a>
+              <ul class="e-dropdown__menu" id="submenu">
+                <li><a href="index.html" class="e-header__sublink e-d-block e-pd-x-20 e-pd-y-10 e-active">Inventory
+                    Sources</a>
+                </li>
+                <!-- <li><a href="ecommerce.html" class="e-header__sublink e-d-block e-pd-x-20 e-pd-y-10">Customers</a>
+                  </li> -->
+              </ul>
+            </li>
+
+            <!-- <li class="e-header__list e-header__list--title e-fw-bld e-tt-uppercase e-pd-x-20 e-pd-y-10">Applications
+            </li> -->
+            <li class="e-header__list">
+              <a href="report.html" class="e-header__link e-pd-20 e-d-flex e-align-center e-justify-between">
+                <span class="e-fs-14 e-d-flex e-align-center"><i class="ri-bar-chart-line e-mg-r-10"></i>Packages</span>
+              </a>
+            </li>
+
+            <li class="e-header__list">
+              <a href="teams.html" class="e-header__link e-pd-20 e-d-flex e-align-center e-justify-between">
+                <span class="e-fs-14 e-d-flex e-align-center"><i class="ri-team-line e-mg-r-10"></i>Teams</span>
+              </a>
+            </li>
+
+            <li class="e-header__list">
+              <a href="prodcuct.html" class="e-header__link e-pd-20 e-d-flex e-align-center e-justify-between">
+                <span class="e-fs-14 e-d-flex e-align-center"><i
+                    class="ri-shopping-cart-line e-mg-r-10"></i>Special Destinations</span>
+              </a>
+            </li>
+
+
+            <!-- <li class="e-header__list">
+              <a href="inbox.html" class="e-header__link e-pd-20 e-d-flex e-align-center e-justify-between">
+                <span class="e-fs-14 e-d-flex e-align-center"><i class="ri-inbox-line e-mg-r-10"></i>Inbox</span>
+                <span class="e-bdg e-bdg-danger">6</span>
+              </a>
+            </li> -->
+
+            <!-- <li class="e-header__list">
+              <a href="calendar.html" class="e-header__link e-pd-20 e-d-flex e-align-center e-justify-between">
+                <span class="e-fs-14 e-d-flex e-align-center"><i
+                    class="ri-calendar-2-line e-mg-r-10"></i>Calendar</span>
+              </a>
+            </li>
+
+            <li class="e-header__list">
+              <a href="task.html" class="e-header__link e-pd-20 e-d-flex e-align-center e-justify-between">
+                <span class="e-fs-14 e-d-flex e-align-center"><i class="ri-task-line e-mg-r-10"></i>Task</span>
+              </a>
+            </li> -->
+
+            
+            <li class="e-header__list">
+              <a href="messages.html" class="e-header__link e-pd-20 e-d-flex e-align-center e-justify-between">
+                <span class="e-fs-14 e-d-flex e-align-center"><i class="ri-message-2-line e-mg-r-10"></i>Messages</span>
+                <span class="e-bdg e-bdg-danger">12</span>
+              </a>
+            </li>
+
+          
+
+<!-- 
+
+            <li class="e-header__list e-header__list--title e-fw-bld e-tt-uppercase e-pd-x-20 e-pd-y-10">Components
+            </li> -->
+
+          
+
+            <!-- <li class="e-header__list">
+              <a href="client.html" class="e-header__link e-pd-20 e-d-flex e-align-center e-justify-between">
+                <span class="e-fs-14 e-d-flex e-align-center"><i class="ri-group-2-line e-mg-r-10"></i>Clients</span>
+              </a>
+            </li> -->
+
+            <li class="e-header__list">
+              <a href="pricing.html" class="e-header__link e-pd-20 e-d-flex e-align-center e-justify-between">
+                <span class="e-fs-14 e-d-flex e-align-center"><i class="ri-price-tag-2-line e-mg-r-10"></i>Travel Pricing</span>
+              </a>
+            </li>
+
+        
+
+            <li class="e-header__list e-header__list--title e-fw-bld e-tt-uppercase e-pd-x-20 e-pd-y-10">System
+            </li>
+
+            <li class="e-header__list">
+              <a href="setting.html" class="e-header__link e-pd-20 e-d-flex e-align-center e-justify-between">
+                <span class="e-fs-14 e-d-flex e-align-center"><i class="ri-equalizer-line e-mg-r-10"></i>Settings</span>
+              </a>
+            </li>
+
+            <li class="e-header__list">
+              <a href="profile.html" class="e-header__link e-pd-20 e-d-flex e-align-center e-justify-between">
+                <span class="e-fs-14 e-d-flex e-align-center"><i class="ri-user-star-line e-mg-r-10"></i>Profile</span>
+              </a>
+            </li>
+
+            <li class="e-header__list e-header__list--employee-of-month">
+              <div class="e-card">
+                <img src="images/employee-month.jpg" alt="Employee of the month">
+                <div class="employee-details e-pd-20 e-ta-center">
+                  <h4>TravelX-AI</h4>
+                  <h2>Tushar Jaiswal</h2>
+                  <span class="e-fs-12 e-tt-capitalize">Traveller</span>
+                </div>
+              </div>
+            </li>
+
+            <li class="e-header__list e-pd-x-20">
+              <a href="#" class="e-btn e-d-flex e-pd-y-20">
+                <span class="e-fs-16 e-d-flex e-align-center"><i class="ri-logout-box-r-line e-mg-r-10"></i>Log
+                  out</span>
+              </a>
+            </li>
+
+          </ul><!-- .e-header__navitems ends -->
+
+          <div  class="e-header__right e-d-flex e-align-center">
+
+            <div class="site-alert e-mg-r-10">
+              <button type="button" class="ease-modal-btn e-btn-icon"
+                data-modal-target="subscription-reminder"></button>
+            </div>
+
+            <div class="theme-control e-mg-r-10">
+              <button type="button" class="theme-switcher e-btn-icon" data-current-theme="light">
+                <i class="ri-moon-line theme-dark"></i>
+                <i class="ri-sun-line theme-light"></i>
+              </button>
+            </div>
+
+            <div class="e-dropdown e-dropdown-abs-right e-d-in-flex e-mg-r-10">
+
+              <button type="button" class="e-btn e-btn-secondary e-btn-sq" data-dropdown-target="notifications">
+                <i class="ri-notification-line e-fs-16"></i>
+                <span class="e-bdg e-bdg-danger">4</span>
+              </button>
+
+              <div class="e-dropdown__menu" id="notifications">
+
+                <div class="dropdown-header e-pd-20">
+                  <h6>Notifications</h6>
+                </div>
+
+                <ul class="dropdown-content">
+
+                  <li class="dropdown-list">
+                    <a href="task.html" class="dropdown-link e-d-block e-pd-x-20 e-pd-y-10">
+                      <span class="notice-time e-fs-12">2:47 PM</span>
+                      <span class="e-d-block notice-content e-fs-14 e-fw-bld">Travel Package by gujrati travels</span>
+                    </a>
+                  </li>
+
+                  <li class="dropdown-list">
+                    <a href="#" class="dropdown-link e-d-block e-pd-x-20 e-pd-y-10">
+                      <span class="notice-time e-fs-12">2:47 PM</span>
+                      <span class="e-d-block notice-content e-fs-14 e-fw-bld">Travel Package by Mehta travels</span>
+                    </a>
+                  </li>
+
+                  <li class="dropdown-list">
+                    <a href="#" class="dropdown-link e-d-block e-pd-x-20 e-pd-y-10">
+                      <span class="notice-time e-fs-12">2:47 PM</span>
+                      <span class="e-d-block notice-content e-fs-14 e-fw-bld">Travel Package by Alaknanda Tours</span>
+                    </a>
+                  </li>
+
+                  <li class="dropdown-list">
+                    <a href="#" class="dropdown-link e-d-block e-pd-x-20 e-pd-y-10">
+                      <span class="notice-time e-fs-12">2:47 PM</span>
+                      <span class="e-d-block notice-content e-fs-14 e-fw-bld">Travel Package by Rathi travels</span>
+                    </a>
+                  </li>
+
+                </ul>
+
+                <div class="dropdown-footer e-pd-20">
+                  <button type="button" class="e-btn e-btn-secondary e-btn-link">Mark all as read</button>
+                </div>
+
+              </div><!-- .e-dropdown__menu ends -->
+
+            </div><!-- e-dropdown ends -->
+
+            <div class="e-dropdown e-dropdown-abs-right e-d-in-flex e-align-center">
+
+              <button type="button" class="e-avat e-avat-35" data-dropdown-target="profile">
+                <img src="images/user-f-1.jpg" alt="" class="e-avat__img">
+              </button>
+
+              <div class="e-dropdown__menu" id="profile">
+
+                <div class="dropdown-header e-pd-20">
+
+                  <div class="e-d-flex e-align-center">
+
+                    <div class="user-img e-mg-r-10">
+                      <div class="e-avat e-avat-40">
+                        <img src="images/user-f-1.jpg" alt="User" class="e-avat__img">
+                      </div>
+                    </div>
+
+                    <div class="user-details">
+                      <span class="e-fw-bld e-fs-14 e-d-block">Tushar Jaiswal</span>
+                      <span class="e-fs-12">Traveller</span>
+                    </div>
+
+                  </div>
+
+                </div><!-- .dropdown-header ends -->
+
+                <ul class="dropdown-content">
+
+                  <li class="dropdown-list">
+                    <a href="profile.html" class="dropdown-link e-d-flex e-align-center e-pd-x-20 e-pd-y-10">
+                      <i class="ri-user-star-line e-fs-16 e-mg-r-10"></i>
+                      <span class="e-fs-14 e-fw-bld">Profile</span>
+                    </a>
+                  </li>
+
+                  <li class="dropdown-list">
+                    <a href="setting.html" class="dropdown-link e-d-flex e-align-center e-pd-x-20 e-pd-y-10">
+                      <i class="ri-equalizer-line e-fs-16 e-mg-r-10"></i>
+                      <span class="e-fs-14 e-fw-bld">Settings</span>
+                    </a>
+                  </li>
+
+                  <li class="dropdown-list">
+                    <a href="task.html" class="dropdown-link e-d-flex e-align-center e-pd-x-20 e-pd-y-10">
+                      <i class="ri-task-line e-fs-16 e-mg-r-10"></i>
+                      <span class="e-fs-14 e-fw-bld">Tasks</span>
+                    </a>
+                  </li>
+
+                </ul>
+
+                <div class="dropdown-footer">
+                  <a href="#" class="dropdown-link e-d-flex e-align-center e-pd-x-20 e-pd-y-10">
+                    <i class="ri-logout-box-r-line e-fs-18 e-mg-r-10"></i>
+                    <span class="e-fs-16 e-fw-bld">Sign out</span>
+                  </a>
+                </div>
+
+              </div><!-- .e-dropdown__menu ends -->
+
+            </div><!-- e-dropdown ends -->
+
+          </div><!-- .e-header__right ends -->
+
+        </nav>
+
+      </div>
+
+    </div>
+
+
+  </header><!-- .e-header ends -->
+
+  <main>
+
+    <div class="ease-dashboard">
+
+      <div class="e-container">
+
+        <div class="e-offset-12 e-offset-md-3 e-offset-lg-2">
+
+          <div class="ease-section-heading e-pd-y-20">
+            <h4 class="ease-title">Good morning, Tushar !</h4>
+            <p class="ease-sub-title">Your are good to go manage ,access and retrieve</p>
+          </div>
+
+          <section class="ease-overview e-pd-y-20">
+
+            <div class="e-row">
+
+              <div class="e-flex-sm-6 e-flex-lg-3 e-mg-b-20 e-mg-b-0-lg">
+
+                <div class="e-card">
+
+                  <div class="e-card__header">
+                    <span class="e-card__title e-fw-bld">Travels Completed</span>
+                    <span style="background-color: gray;" class="e-btn-icon e-btn-icon-static"><i class="ri-bar-chart-line"></i></span>
+                  </div>
+
+                  <div class="e-card__body e-d-flex e-justify-between e-align-end">
+
+                    <div class="left-side">
+                      <h2 class="e-mg-b-10">15</h2>
+                      <!-- <p class="e-fs-12 e-d-flex e-align-center">
+                        <span class="ease-indicator-up e-mg-r-10 e-d-in-flex e-align-center"><i
+                            class="ri-arrow-up-line"></i> 12.5%</span>
+                        <span class="ease-faded-text">From last week</span>
+                      </p> -->
+                    </div>
+
+                    <!-- <div class="right-side">
+                      <div class="e-bdg e-bdg-danger ease-bdg"><i class="ri-folde$-line"></i></div>
+                    </div> -->
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="e-flex-sm-6 e-flex-lg-3 e-mg-b-20 e-mg-b-0-lg">
+
+                <div class="e-card">
+
+                  <div class="e-card__header">
+                    <span class="e-card__title e-fw-bld">Average Travel Expenditure</span>
+                    <span style="background-color: gray
+                    ;" class="e-btn-icon e-btn-icon-static"><i  class="ri-bar-chart-line"></i></span>
+                  </div>
+
+                  <div class="e-card__body e-d-flex e-justify-between e-align-end">
+
+                    <div class="left-side">
+                      <h2 class="e-mg-b-10">Rs 5500</h2>
+                      <!-- <p class="e-fs-12 e-d-flex e-align-center">
+                        <span class="ease-indicator-up e-mg-r-10 e-d-in-flex e-align-center"><i
+                            class="ri-arrow-up-line"></i>
+                          15.7%</span>
+                        <span class="ease-faded-text">From last week</span>
+                      </p> -->
+                    </div>
+
+                    <div class="right-side">
+                      <div class="e-bdg e-bdg-secondary ease-bdg"><i class="ri-money-dollar-circle-line"></i></div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="e-flex-sm-6 e-flex-lg-3 e-mg-b-20 e-mg-b-0-sm">
+
+                <div class="e-card">
+
+                  <div class="e-card__header">
+                    <span class="e-card__title e-fw-bld">Total Spent</span>
+                    <span style="background-color: gray;" class="e-btn-icon e-btn-icon-static"><i class="ri-bar-chart-line"></i></span>
+                  </div>
+
+                  <div class="e-card__body e-d-flex e-justify-between e-align-end">
+
+                    <div class="left-side">
+                      <h2 class="e-mg-b-10">Rs 29,500</h2>
+                      <!-- <p class="e-fs-12 e-d-flex e-align-center">
+                        <span class="ease-indicator-down e-mg-r-10 e-d-in-flex e-align-center"><i
+                            class="ri-arrow-down-line"></i>
+                          4%</span>
+                        <span class="ease-faded-text">From last month</span>
+                      </p> -->
+                    </div>
+
+                    <div class="right-side">
+                      <div class="e-bdg e-bdg-success ease-bdg"><i class="ri-line-chart-line"></i></div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="e-flex-sm-6 e-flex-lg-3">
+
+                <div class="e-card">
+
+                  <div class="e-card__header">
+                    <span class="e-card__title e-fw-bld">Miscellaneous</span>
+                    <span style="background-color: gray;" class="e-btn-icon e-btn-icon-static"><i class="ri-bar-chart-line"></i></span>
+                  </div>
+
+                  <div class="e-card__body e-d-flex e-justify-between">
+
+                    <div class="ease-box e-ta-center">
+                      <h2 class="e-mg-b-10">12</h2>
+                      <p class="e-fs-12 ease-faded-text">Messages</p>
+                    </div>
+                    <div class="ease-box e-ta-center">
+                      <h2 class="e-mg-b-10">6</h2>
+                      <p class="e-fs-12 ease-faded-text">Inbox</p>
+                    </div>
+                    <div class="ease-box e-ta-center">
+                      <h2 class="e-mg-b-10">4</h2>
+                      <p class="e-fs-12 ease-faded-text">Notifications</p>
+                    </div>
+                    <div class="ease-box e-ta-center">
+                      <h2 class="e-mg-b-10">1</h2>
+                      <p class="e-fs-12 ease-faded-text">Alerts</p>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section><!-- .ease-overview ends -->
+
+          <section class="ease-project-updates e-pd-y-20">
+
+            <div class="e-row">
+
+              <div style="height: 40%;" class="e-flex-md-7 e-mg-b-20 e-mg-b-0-md">
+
+                <div class="e-card">
+
+                  <div class="e-card__header">
+                    <span class="e-card__title e-fw-bld">Travel Updates</span>
+
+                    <div class="e-d-flex e-align-center">
+                      <!-- <button type="button" class="e-btn e-btn-sm e-btn-primary e-mg-r-10">
+                        <i class="ri-arrow-up-line e-mg-r-10"></i>
+                        Export
+                      </button> -->
+
+                      <button type="button" class="e-btn e-btn-secondary e-btn-sq">
+                        <i class="ri-add-line"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="e-card__body e-pd-0">
+
+                    <div class="e-overflow-auto">
+
+                      <table class="e-tbl">
+
+                        <thead style="background-color:darkcyan; color: white; " class="e-tbl__header">
+                          <tr  class="e-tbl__row">
+                            <th class="e-tbl__head">Travel Destination</th>
+                            <th class="e-tbl__head">Companions</th>
+                            <th class="e-tbl__head">Booking Progress</th>
+                            <th class="e-tbl__head">Current Status of Trip</th>
+                            <th class="e-tbl__head">Estimated Budget</th>
+                            <th class="e-tbl__head">Planned Travel Date</th>
+                          </tr>
+                        </thead>
+
+                        <tbody class="e-tbl__body">
+
+                          <tr class="e-tbl__row">
+                            <td class="e-tbl__data">Agra (Taj Mahal)</td>
+                            <td class="e-tbl__data">
+                              <div class="e-avat-group">
+                                <div class="e-avat e-avat-30"><img src="images/user-m-1.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-m-2.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-f-3.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-f-2.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-f-1.jpg" alt="" class="e-avat__img">
+                                </div>
+                              </div>
+                            </td>
+                            <td class="e-tbl__data">
+                              <div class="ease-progress" data-current-progress="35">
+                                <span class="ease-progress__inner"></span>
+                              </div>
+                            </td>
+                            <td class="e-tbl__data">
+                              <div class="e-bdg e-bdg-secondary">In progress</div>
+                            </td>
+                            <td class="e-tbl__data">
+                              Rs 15000
+                            </td>
+                            <td class="e-tbl__data">
+                              December 24, 2024
+                            </td>
+                          </tr>
+
+                          <tr class="e-tbl__row">
+                            <td class="e-tbl__data">KolKata </td>
+                            <td class="e-tbl__data">
+                              <div class="e-avat-group">
+                                <div class="e-avat e-avat-30"><img src="images/user-m-1.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-m-2.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-f-3.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-f-2.jpg" alt="" class="e-avat__img">
+                                </div>
+                              </div>
+                            </td>
+                            <td class="e-tbl__data">
+                              <div class="ease-progress" data-current-progress="0">
+                                <span class="ease-progress__inner"></span>
+                              </div>
+                            </td>
+                            <td class="e-tbl__data">
+                              <div class="e-bdg e-bdg-danger">Canceled</div>
+                            </td>
+                            <td class="e-tbl__data">
+                              Rs 10000
+                            </td>
+                            <td class="e-tbl__data">
+                              August 16, 2025
+                            </td>
+                          </tr>
+
+                          <tr class="e-tbl__row">
+                            <td class="e-tbl__data">Jaipur</td>
+                            <td class="e-tbl__data">
+                              <div class="e-avat-group">
+                                <div class="e-avat e-avat-30"><img src="images/user-m-1.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-m-2.jpg" alt="" class="e-avat__img">
+                                </div>
+                              </div>
+                            </td>
+                            <td class="e-tbl__data">
+                              <div class="ease-progress" data-current-progress="100">
+                                <span class="ease-progress__inner"></span>
+                              </div>
+                            </td>
+                            <td class="e-tbl__data">
+                              <div class="e-bdg e-bdg-success">Completed</div>
+                            </td>
+                            <td class="e-tbl__data">
+                              Rs 6500
+                            </td>
+                            <td class="e-tbl__data">
+                              November 30, 2024
+                            </td>
+                          </tr>
+
+                          <tr class="e-tbl__row">
+                            <td class="e-tbl__data">Raipur</td>
+                            <td class="e-tbl__data">
+                              <div class="e-avat-group">
+                                <div class="e-avat e-avat-30"><img src="images/user-m-1.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-m-2.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-f-3.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-f-2.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-f-1.jpg" alt="" class="e-avat__img">
+                                </div>
+                              </div>
+                            </td>
+                            <td class="e-tbl__data">
+                              <div class="ease-progress" data-current-progress="0">
+                                <span class="ease-progress__inner"></span>
+                              </div>
+                            </td>
+                            <td class="e-tbl__data">
+                              <div class="e-bdg e-bdg-warn">Pending</div>
+                            </td>
+                            <td class="e-tbl__data">
+                              Rs 3500
+                            </td>
+                            <td class="e-tbl__data">
+                              July 16, 2025
+                            </td>
+                          </tr>
+
+                          <tr class="e-tbl__row">
+                            <td class="e-tbl__data">Coorg</td>
+                            <td class="e-tbl__data">
+                              <div class="e-avat-group">
+                                <div class="e-avat e-avat-30"><img src="images/user-m-1.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-m-2.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-f-3.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-f-2.jpg" alt="" class="e-avat__img">
+                                </div>
+                                <div class="e-avat e-avat-30"><img src="images/user-f-1.jpg" alt="" class="e-avat__img">
+                                </div>
+                              </div>
+                            </td>
+                            <td class="e-tbl__data">
+                              <div class="ease-progress" data-current-progress="82">
+                                <span class="ease-progress__inner"></span>
+                              </div>
+                            </td>
+                            <td class="e-tbl__data">
+                              <div class="e-bdg e-bdg-secondary">Pending</div>
+                            </td>
+                            <td class="e-tbl__data">
+                              Rs 8000
+                            </td>
+                            <td class="e-tbl__data">
+                              15 December, 2025
+                            </td>
+                          </tr>
+
+                        </tbody>
+
+                      </table>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="e-flex-md-5">
+
+                <div class="e-card">
+
+                  <div class="e-card__header">
+
+                    <span class="e-card__title e-fw-bld">Featured Travels</span>
+                    <a href="#" class="e-btn e-btn-sq e-btn-secondary"><i class="ri-arrow-right-up-line"></i></a>
+
+                  </div>
+
+                  <div class="e-card__body e-d-flex e-align-center">
+
+                    <div class="e-row e-align-center">
+
+                      <div class="e-flex-sm-7 e-flex-md-12 e-flex-lg-7 e-mg-b-20 e-mg-b-0-lg">
+
+                        <div class="ease-section-heading e-pd-y-20">
+                          <h4 class="ease-title">Lahaul and Spiti</h4>
+                          <p class="e-fs-12 ease-sub-title font-semibold ">Himachal Pradesh</p>
+                        </div>
+
+                        <p class="e-mg-b-20">Nestled in the Indian state of Himachal Pradesh, Lahaul and Spiti is a breathtakingly remote region known for its stark landscapes, serene monasteries, and vibrant Tibetan culture. Surrounded by snow-capped peaks, the valley offers pristine lakes, ancient monasteries like Key and Tabo, and thrilling adventures like trekking and mountain biking. Perfect for travelers seeking tranquility and raw natural beauty.</p>
+
+                        <div class="e-avat-group">
+                          <div class="e-avat e-avat-30"><img src="images/user-m-1.jpg" alt="" class="e-avat__img">
+                          </div>
+                          <div class="e-avat e-avat-30"><img src="images/user-m-2.jpg" alt="" class="e-avat__img">
+                          </div>
+                          <div class="e-avat e-avat-30"><img src="images/user-f-3.jpg" alt="" class="e-avat__img">
+                          </div>
+                          <div class="e-avat e-avat-30"><img src="images/user-f-2.jpg" alt="" class="e-avat__img">
+                          </div>
+                          <div class="e-avat e-avat-30"><img src="images/user-f-1.jpg" alt="" class="e-avat__img">
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="e-flex-sm-5 e-flex-md-12 e-flex-lg-5">
+
+                        <div class="e-card ease-featured-project e-overflow-hidden">
+                          <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQkI0eNnVCNCFKXl8ZMPfGEl2hveok8hNhG3JrWKo5oNTITdlhx-eFFM7wzCVs2M6TU3__ApCY8xrFD_TFDq-lamztYY7lv5aDx8-7DvA" alt="">
+                          <div class="decoration"><img src="images/decoration.svg" alt=""></div>
+                        </div>
+
+                      </div>
+
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section> <!-- .ease-project-updates ends -->
+
+          <section class="ease-project-overview e-pd-y-20">
+
+            <div class="e-row">
+
+              <div class="e-flex-lg-6 e-mg-b-20 e-mg-b-0-lg">
+
+                <div class="e-card">
+
+                  <div class="e-card__header">
+                    <span class="e-card__title e-fw-bld">Travel Overview (Till 2024)</span>
+
+                    <div class="e-d-in-block e-dropdown e-dropdown-abs-right">
+                      <button type="button" class="e-btn-icon" data-dropdown-target="project-overview">
+                        <i class="ri-more-2-line"></i>
+                      </button>
+
+                      <div class="e-dropdown__menu" id="project-overview">
+
+                        <ul class="dropdown-content">
+
+                          <li style="font-weight: 900;" class="dropdown-list"><a href="#" class="dropdown-link e-d-block e-pd-10">Completed</a>
+                          </li>
+
+                          <li style="font-weight: 900;" class="dropdown-list"><a href="#" class="dropdown-link e-d-block e-pd-10">In
+                              progress</a></li>
+
+                          <li style="font-weight: 900;" class="dropdown-list"><a href="#" class="dropdown-link e-d-block e-pd-10">Delayed /
+                              canceled</a></li>
+
+                        </ul>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="e-card__body e-pd-0">
+
+                    <div style="background-color:transparent; color: white; " class="e-tbl__header e-pd-20 e-ta-center e-overflow-hidden">
+
+                      <div  class="e-row">
+
+                        <div class="e-flex-6 e-flex-sm-3 e-mg-b-8 e-mg-b-0-sm">
+                          <div class="e-h2">12</div>
+                          <span style="font-size: 15px;" class="e-fs-12">Total Travels</span>
+                        </div>
+
+                        <div class="e-flex-6 e-flex-sm-3 e-mg-b-8 e-mg-b-0-sm">
+                          <div class="e-h2">7</div>
+                          <span style="font-weight:800;" class="e-fs-12 e-bdg e-bdg-success">Completed</span>
+                        </div>
+
+                        <div class="e-flex-6 e-flex-sm-3">
+                          <div class="e-h2">2</div>
+                          <span style="font-weight:800;" class="e-fs-12 e-bdg e-bdg-secondary">In progress</span>
+                        </div>
+
+                        <div class="e-flex-6 e-flex-sm-3">
+                          <div class="e-h2">3</div>
+                          <span style="font-weight:800;" class="e-fs-12 e-bdg e-bdg-danger">Delayed/canceled</span>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <div class="ease-chart e-pd-20">
+                      <canvas id="ease-project"></canvas>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="e-flex-lg-6">
+
+                <div class="e-card">
+
+                  <div class="e-card__header">
+                    <span class="e-card__title e-fw-bld">Travel Expenditure (Latest = Rs 6500)</span>
+                  </div>
+
+                  <div class="e-card__body e-d-flex e-fd-column e-align-center">
+
+                    <div class="e-row e-mg-b-20">
+
+                      <div class="e-flex-6 e-flex-sm-3 e-mg-b-8 e-mg-b-0-sm">
+                        <div class="e-h2">Rs 2000</div>
+                        <span class="e-fs-12 e-bdg e-bdg-secondary e-tt-capitalize">Accomodation</span>
+                      </div>
+
+                      <div class="e-flex-6 e-flex-sm-3 e-mg-b-8 e-mg-b-0-sm">
+                        <div class="e-h2">Rs 2500</div>
+                        <span class="e-fs-12 e-bdg e-bdg-danger e-tt-capitalize">Transportation</span>
+                      </div>
+
+                      <div class="e-flex-6 e-flex-sm-3">
+                        <div class="e-h2">Rs 500</div>
+                        <span class="e-fs-12 e-bdg e-bdg-success e-tt-capitalize">Meals and Dining</span>
+                      </div>
+
+                      <div class="e-flex-6 e-flex-sm-3">
+                        <div class="e-h2">Rs 1500</div>
+                        <span class="e-fs-12 e-bdg e-bdg-warn e-tt-capitalize">Activity and Entertainment</span>
+                      </div>
+
+                    </div>
+
+                    <div class="ease-earning-chart e-d-flex e-justify-center e-align-center">
+                      <canvas id="ease-earnings"></canvas>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section><!-- .ease-project-overview ends -->
+
+          <section class="ease-client-overview e-pd-y-20">
+
+            <div class="e-card ease-client">
+
+              <div class="e-card__header">
+                <span class="e-card__title e-fw-bld">Travel Guide Overview</span>
+              </div>
+
+              <div class="e-card__body e-pd-0">
+
+                <div class="e-overflow-auto">
+
+                  <table class="e-tbl">
+
+                    <thead class="e-tbl__header" style="background-color:darkcyan; color: white; ">
+                      <tr class="e-tbl__row">
+                        <th class="e-tbl__head">Name</th>
+                        <th class="e-tbl__head">Destination</th>
+                        <th class="e-tbl__head">Contact</th>
+                        <th class="e-tbl__head">Charge</th>
+                        <th class="e-tbl__head">Rating</th>
+                      </tr>
+                    </thead>
+
+                    <tbody class="e-tbl__body">
+
+                      <tr class="e-tbl__row">
+
+                        <td class="e-tbl__data">
+
+                          <div class="e-d-flex e-align-center">
+
+                            <div class="e-mg-r-10">
+                              <div class="e-avat e-avat-30"><img src="images/fitness-sm.jpg" alt="" class="e-avat__img">
+                              </div>
+                            </div>
+
+                            <div class="user-details">
+                              <span class="e-h5 e-d-block">Sharma Travels</span>
+                              <span class="e-fs-12">Amit Sharma</span>
+                            </div>
+
+                          </div>
+
+                        </td>
+
+                        <td class="e-tbl__data">Delhi</td>
+
+                        <td class="e-tbl__data">+91 9876543210</td>
+                        <td class="e-tbl__data">₹1200</td>
+                        <td class="e-tbl__data"><span class="ease-level-gold e-fw-md">Gold</span></td>
+                      </tr>
+
+                      <tr class="e-tbl__row">
+
+                        <td class="e-tbl__data">
+
+                          <div class="e-d-flex e-align-center">
+
+                            <div class="e-mg-r-10">
+                              <div class="e-avat e-avat-30"><img src="images/fruit-2.jpg" alt="" class="e-avat__img">
+                              </div>
+                            </div>
+
+                            <div class="user-details">
+                              <span class="e-h5 e-d-block">Verma Tours & Travels</span>
+                              <span class="e-fs-12">Neha Verma</span>
+                            </div>
+
+                          </div>
+
+                        </td>
+
+                        <td class="e-tbl__data">Mumbai</td>
+
+                        <td class="e-tbl__data">+91 9123456789</td>
+                        <td class="e-tbl__data">₹1500</td>
+                        <td class="e-tbl__data"><span class="ease-level-silver e-fw-md">Silver</span></td>
+                      </tr>
+
+                      <tr class="e-tbl__row">
+
+                        <td class="e-tbl__data">
+
+                          <div class="e-d-flex e-align-center">
+
+                            <div class="e-mg-r-10">
+                              <div class="e-avat e-avat-30"><img src="images/shoe-1.jpg" alt="" class="e-avat__img">
+                              </div>
+                            </div>
+
+                            <div class="user-details">
+                              <span class="e-h5 e-d-block">Gupta Journey Services</span>
+                              <span class="e-fs-12">Rajesh Gupta</span>
+                            </div>
+
+                          </div>
+
+                        </td>
+
+                        <td class="e-tbl__data">Bengaluru</td>
+
+                        <td class="e-tbl__data">+91 9988776655</td>
+                        <td class="e-tbl__data">₹1800</td>
+                        <td class="e-tbl__data"><span class="ease-level-gold e-fw-md">Gold</span></td>
+                      </tr>
+
+                      <tr class="e-tbl__row">
+
+                        <td class="e-tbl__data">
+
+                          <div class="e-d-flex e-align-center">
+
+                            <div class="e-mg-r-10">
+                              <div class="e-avat e-avat-30"><img src="images/fruit-1.jpg" alt="" class="e-avat__img">
+                              </div>
+                            </div>
+
+                            <div class="user-details">
+                              <span class="e-h5 e-d-block">Singh Roadways</span>
+                              <span class="e-fs-12">Pooja Singh</span>
+                            </div>
+
+                          </div>
+
+                        </td>
+
+                        <td class="e-tbl__data">Kolkata</td>
+
+                        <td class="e-tbl__data">+91 8877665544</td>
+                        <td class="e-tbl__data">₹1100</td>
+                        <td class="e-tbl__data"><span class="ease-level-gold e-fw-md">Gold</span></td>
+                      </tr>
+
+                      <tr class="e-tbl__row">
+
+                        <td class="e-tbl__data">
+
+                          <div class="e-d-flex e-align-center">
+
+                            <div class="e-mg-r-10">
+                              <div class="e-avat e-avat-30"><img src="images/bag.jpg" alt="" class="e-avat__img">
+                              </div>
+                            </div>
+
+                            <div class="user-details">
+                              <span class="e-h5 e-d-block">Mehta Express</span>
+                              <span class="e-fs-12">Vikram Mehta</span>
+                            </div>
+
+                          </div>
+
+                        </td>
+
+                        <td class="e-tbl__data">Chennai</td>
+
+                        <td class="e-tbl__data">+91 7766554433</td>
+                        <td class="e-tbl__data">₹1400</td>
+                        <td class="e-tbl__data"><span class="ease-level-silver e-fw-md">Silver</span></td>
+                      </tr>
+
+                    </tbody>
+
+                  </table>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section><!-- .ease-client-overview ends -->
+
+          <section class="ease-communication-overview e-pd-y-20">
+
+            <div class="e-row">
+
+              <div class="e-flex-md-6 e-mg-b-20 e-mg-b-0-md">
+
+                <div class="e-card ease-communication">
+
+                  <div class="e-card__header">
+                    <span class="e-card__title e-fw-bld">Message updates</span>
+
+                    <div class="e-d-flex e-align-center">
+                      <span class="e-fs-12 ease-faded-text">Refreshed 1h ago</span>
+                      <div class="e-mg-l-10">
+                        <button type="button" class="e-btn-icon"><i class="ri-refresh-line"></i></button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="e-card__body e-pd-0">
+
+                    <div class="ease-message">
+
+                      <div style="background-color: transparent;"
+                       class="e-tbl__header e-d-flex e-justify-between e-align-center e-pd-x-20 e-pd-y-16">
+                        <span>Messages</span>
+                        <a href="messages.html" class="e-btn e-btn-secondary e-btn-link e-tt-none">View all</a>
+                      </div>
+
+                      <div class="e-tbl__row">
+
+                        <div class="e-tbl__data e-pd-x-20">
+
+                          <div class="ease-communication-content">
+
+                            <div class="e-d-flex">
+
+                              <div class="e-mg-r-10">
+                                <div class="e-avat e-avat-30"><img src="images/user-m-1.jpg" alt="" class="e-avat__img">
+                                </div>
+                              </div>
+
+                              <div class="ease-communication-details">
+                                <span class="e-h5 e-d-block">Tushar</span>
+                                <p class="e-fs-12 ease-content">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                  elit. Eos voluptate odio saepe voluptatum magnam voluptas!</p>
+                              </div>
+
+                            </div>
+
+                            <span class="ease-meta e-fs-12 ease-faded-text">02/02/23 || 09:45 AM</span>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                      <div class="e-tbl__row">
+
+                        <div class="e-tbl__data e-pd-x-20">
+
+                          <div class="ease-communication-content">
+
+                            <div class="e-d-flex">
+
+                              <div class="e-mg-r-10">
+                                <div class="e-avat e-avat-30"><img src="images/user-f-2.jpg" alt="" class="e-avat__img">
+                                </div>
+                              </div>
+
+                              <div class="ease-communication-details">
+                                <span class="e-h5 e-d-block">Tushar.</span>
+                                <p class="e-fs-12 ease-content">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                  elit. Eos voluptate odio saepe voluptatum magnam voluptas!</p>
+                              </div>
+
+                            </div>
+
+                            <span class="ease-meta e-fs-12 ease-faded-text">02/01/23 || 07:25 AM</span>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="e-flex-md-6">
+
+                <div class="e-card ease-communication">
+
+                  <div class="e-card__header">
+                    <span class="e-card__title e-fw-bld">Inbox updates</span>
+
+                    <div class="e-d-flex e-align-center">
+                      <span class="e-fs-12 ease-faded-text">Refreshed 1h ago</span>
+                      <div class="e-mg-l-10">
+                        <button type="button" class="e-btn-icon"><i class="ri-refresh-line"></i></button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="e-card__body e-pd-0">
+
+                    <div class="ease-inbox">
+
+                      <div style="background-color: transparent;" class="e-tbl__header e-d-flex e-justify-between e-align-center e-pd-x-20 e-pd-y-16">
+                        <span>Inbox</span>
+                        <a style="color: white;" href="inbox.html" class="e-btn e-btn-secondary e-btn-link e-tt-none">View all</a>
+                      </div>
+
+                      <div class="e-tbl__row">
+
+                        <div class="e-tbl__data e-pd-x-20">
+
+                          <div class="ease-communication-content">
+
+                            <div class="e-d-flex-lg">
+
+                              <div class="left-side e-d-flex e-mg-r-10-lg">
+
+                                <div class="e-mg-r-10">
+                                  <div class="e-avat e-avat-30"><img src="images/user-m-1.jpg" alt=""
+                                      class="e-avat__img"></div>
+                                </div>
+
+                                <div class="ease-communication-details">
+                                  <span class="e-h5 e-d-block">Tushar</span>
+                                  <p class="e-fs-12">Tushar@gmail.com</p>
+                                </div>
+
+                              </div>
+
+                              <div class="right-side">
+                                <div class="ease-communication-details">
+                                  <span class="e-h5 e-d-block">Re: Wireframe</span>
+                                  <p class="e-fs-12">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Voluptatum velit rem tempora?</p>
+                                </div>
+                              </div>
+
+                            </div>
+
+                            <span class="ease-meta e-fs-12 ease-faded-text">02/02/23 || 09:45 AM</span>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                      <div class="e-tbl__row">
+
+                        <div class="e-tbl__data e-pd-x-20">
+
+                          <div class="ease-communication-content">
+
+                            <div class="e-d-flex-lg">
+
+                              <div class="left-side e-d-flex e-mg-r-10-lg">
+
+                                <div class="e-mg-r-10">
+                                  <div class="e-avat e-avat-30"><img src="images/user-f-2.jpg" alt=""
+                                      class="e-avat__img"></div>
+                                </div>
+
+                                <div class="ease-communication-details">
+                                  <span class="e-h5 e-d-block">Tushar.</span>
+                                  <p class="e-fs-12">tusharjaiswal@gmail.com</p>
+                                </div>
+
+                              </div>
+
+                              <div class="right-side">
+                                <div class="ease-communication-details">
+                                  <span class="e-h5 e-d-block">Re: Today's meet</span>
+                                  <p class="e-fs-12">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Voluptatum velit rem tempora?</p>
+                                </div>
+                              </div>
+
+                            </div>
+
+                            <span class="ease-meta e-fs-12 ease-faded-text">02/01/23 || 07:45 AM</span>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section><!-- .ease-communication-overview ends -->
+
+        </div><!-- .e-offset-* ends -->
+
+      </div><!-- .e-container ends -->
+
+    </div><!-- .ease-dashboard ends -->
+
+  </main>
+
+  <!-- Modal -->
+  <div style="display: flex ; align-items: center;" class="ease-modal e-d-flex e-fd-column e-justify-center e-align-center e-pd-20" id="subscription-reminder">
+
+    <div   class="e-container ">
+
+      <div style="" class="e-row e-justify-center e-align-center">
+
+        <div style="margin-left: 25px;" class="e-flex-sm-3 e-flex-xl-2">
+
+          <div class="e-card ease-subscription-plan ease-modal-inner">
+
+            <div class="e-card__header e-ta-center e-justify-center">
+              <span class="e-card__title e-fw-bld">Bumper Package Alerts</span>
+            </div>
+
+            <div class="e-card__body e-ta-center e-overflow-hidden"></div>
+
+            <div style="margin-top: -20px;margin-left: 15px;" class="e-h2">Shimla Package</div>
+            <span style="margin-left: 15px;" class="e-fs-12">Visit Shimla with Rathore Trips and Travels</span>
+
+            <p style="margin-left: 15px;" class="e-mg-y-10">Enjoy Hard in less expense</p>
+
+            <!-- <div class="e-h2">$4,623.76</div> -->
+            <span class="e-d-block e-fs-12 e-mg-b-10"></span>
+
+            <a style="margin-bottom: 15px;margin-left: 15px;" href="#" class="e-btn e-fs-16">Book Package</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  </div><!-- .ease-modal ends -->
+
+  <footer style="background-color: blue; color: white;" class="ease-footer e-pd-y-20">
+
+    <div class="e-container">
+
+      <div class="e-offset-12 e-offset-md-3 e-offset-lg-2">
+        <p>&copy; 2024 / Ease / Designed &amp; developed by <a href="#"
+          style="color: white;"  class="e-btn e-btn-secondary e-btn-link e-tt-none">Stellar Sync5.0</a></p>
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- ChartJS script -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Main (custom) script-->
+  <script src="dist/js/main.min.js"></script>
+</body>
+
+</html>

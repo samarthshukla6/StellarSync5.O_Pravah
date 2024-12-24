@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharmacy Management AI Suggestions</title>
+  <style>
+    /* CSS Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: none;
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background-color: #007BFF;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: #B0C4DE;
+    }
+
+    .response-box {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #e9ecef;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .loading {
+      text-align: center;
+      font-size: 18px;
+      color: #007BFF;
+    }
+
+    .response-box h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .response-box p {
+      font-size: 16px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>AI Suggestions for Pharmacy Management</h2>
+
+    <!-- Input section -->
+    <textarea id="userInput" rows="4" placeholder="Ask about medicines, interactions, or pharmacy management..."></textarea>
+    <button id="submitButton">Get AI Suggestion</button>
+
+    <!-- Loading and Response section -->
+    <div id="loading" class="loading" style="display:none;">Loading...</div>
+    <div id="responseBox" class="response-box" style="display:none;">
+      <h3>AI Response</h3>
+      <p id="aiResponse"></p>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript code for mock AI suggestion
+    const submitButton = document.getElementById('submitButton');
+    const userInputField = document.getElementById('userInput');
+    const loadingElement = document.getElementById('loading');
+    const responseBox = document.getElementById('responseBox');
+    const aiResponseElement = document.getElementById('aiResponse');
+
+    submitButton.addEventListener('click', async () => {
+      const userInput = userInputField.value.trim();
+      
+      if (!userInput) {
+        alert('Please enter a question or request.');
+        return;
+      }
+
+      // Show loading
+      loadingElement.style.display = 'block';
+      responseBox.style.display = 'none';
+
+      // Mock API Call (Complex Data)
+      const aiResponse = await mockAiApiCall(userInput);
+      
+      // Hide loading and show response
+      loadingElement.style.display = 'none';
+      responseBox.style.display = 'block';
+      aiResponseElement.innerText = aiResponse;
+    });
+
+    // Mock API Call for AI suggestion with complex data
+    async function mockAiApiCall(input) {
+      // Simulating AI complex data response based on input
+      await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate network delay
+      
+      // Mock response based on input
+      const mockResponses = {
+        "medicine for headache": "Consider Ibuprofen or Acetaminophen. Both are commonly used for headache relief. However, avoid using them together. Check for any allergies before prescribing.",
+        "drug interaction": "Be cautious of drug interactions between blood thinners (e.g., Warfarin) and antibiotics (e.g., Ciprofloxacin). Always check patient history for other ongoing medications.",
+        "pharmacy stock management": "Use a stock management system that automatically tracks stock levels and generates reorder alerts. It can also predict demand based on past sales and seasonal trends.",
+        "side effects of antibiotics": "Common side effects include nausea, diarrhea, and rash. Some patients may also experience allergic reactions, especially with penicillin-based antibiotics."
+      };
+
+      // Return the corresponding response or a default message if not found
+      return mockResponses[input.toLowerCase()] || "Sorry, I couldn't find relevant suggestions for your request. Please try again with more details.";
+    }
+  </script>
+
+</body>
+</html>

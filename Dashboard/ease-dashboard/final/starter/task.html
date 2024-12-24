@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: darkblue; /* Bluish background */
+            color: white; /* White text */
+            text-align: center;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        #task-container {
+            max-width: 500px;
+            margin: auto;
+            background: #333333; /* Dark gray background */
+            color: white; /* White text for the form */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        #task-input {
+            width: 75%;
+            padding: 10px;
+            font-size: 16px;
+            background: #444; /* Darker gray input background */
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #add-task {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: white;
+            background-color: #0056b3; /* Dark bluish button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #add-task:hover {
+            background-color: #003e82; /* Darker blue on hover */
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #444; /* Slightly lighter dark gray */
+            color: white;
+            margin: 5px 0;
+            border: 1px solid #555;
+            border-radius: 5px;
+        }
+        li.completed {
+            text-decoration: line-through;
+            color: #00ff00; /* Bright green for completed tasks */
+        }
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+        .action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .action-btn.complete {
+            color: #00ff00; /* Green checkmark */
+        }
+        .action-btn.delete {
+            color: #ff3333; /* Red cross */
+        }
+        #notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #444; /* Dark gray */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>Task Manager</h1>
+    <div id="task-container">
+        <input type="text" id="task-input" placeholder="Enter your task here">
+        <button id="add-task">Add Task</button>
+        <ul id="task-list"></ul>
+    </div>
+    <div id="notification">Notification</div>
+
+    <script>
+        document.getElementById('add-task').addEventListener('click', function () {
+            const taskInput = document.getElementById('task-input');
+            const taskText = taskInput.value.trim();
+
+            if (taskText === '') {
+                showNotification('Please enter a task!');
+                return;
+            }
+
+            const taskList = document.getElementById('task-list');
+
+            const li = document.createElement('li');
+            li.textContent = taskText;
+
+            const actions = document.createElement('div');
+            actions.classList.add('actions');
+
+            const completeBtn = document.createElement('button');
+            completeBtn.innerHTML = '✔';
+            completeBtn.classList.add('action-btn', 'complete');
+            completeBtn.addEventListener('click', function () {
+                li.classList.toggle('completed');
+                showNotification('Task marked as completed!');
+            });
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.innerHTML = '✖';
+            deleteBtn.classList.add('action-btn', 'delete');
+            deleteBtn.addEventListener('click', function () {
+                li.remove();
+                showNotification('Task deleted!');
+            });
+
+            actions.appendChild(completeBtn);
+            actions.appendChild(deleteBtn);
+            li.appendChild(actions);
+            taskList.appendChild(li);
+
+            taskInput.value = '';
+            showNotification('Task added!');
+        });
+
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.style.display = 'block';
+
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

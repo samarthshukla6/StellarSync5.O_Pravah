@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Friends</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e3a8a; /* Bluish background */
+            color: white; /* White text */
+        }
+        header {
+            background-color:#2d3748 ; /* Darker blue for header */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #2d3748; /* Dark gray for form section */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        table th, table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #4a5568; /* Darker gray for table borders */
+        }
+        table th {
+            background-color: #2563eb; /* Matching header blue */
+            color: white;
+        }
+        table tr:nth-child(even) {
+            background-color: #1e293b; /* Slightly lighter dark gray */
+        }
+        table tr:hover {
+            background-color: #374151; /* Highlighted gray */
+        }
+        .btn {
+            padding: 8px 15px;
+            color: white;
+            background-color: #2563eb;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .btn:hover {
+            background-color: #1d4ed8; /* Darker blue on hover */
+        }
+        .contact {
+            color: #60a5fa; /* Light blue for contact links */
+            text-decoration: none;
+        }
+        .contact:hover {
+            text-decoration: underline;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #2d3748; /* Dark gray modal background */
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #4a5568;
+            width: 80%;
+            border-radius: 10px;
+            color: white;
+        }
+        .close {
+            color: #a0aec0; /* Gray close button */
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Travel Friends</h1>
+    </header>
+    <div class="container">
+        <h1>Friends on the Trip</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Friend's Name</th>
+                    <th>Role in Trip</th>
+                    <th>Contact</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="friendTable">
+                <!-- Rows will be populated dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+    <div id="friendModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalFriendName">Friend's Name</h2>
+            <p id="modalFriendRole">Role: </p>
+            <p id="modalFriendContact">Contact: </p>
+        </div>
+    </div>
+
+    <script>
+        const friends = [
+            { name: "Amit", role: "Planner", contact: "amit@example.com" },
+            { name: "Priya", role: "Photographer", contact: "priya@example.com" },
+            { name: "Ravi", role: "Driver", contact: "ravi@example.com" },
+            { name: "Sita", role: "Navigator", contact: "sita@example.com" },
+            { name: "Kiran", role: "Budget Manager", contact: "kiran@example.com" },
+        ];
+
+        function populateFriendTable() {
+            const tableBody = document.getElementById('friendTable');
+            tableBody.innerHTML = '';
+
+            friends.forEach(friend => {
+                const row = `
+                    <tr>
+                        <td>${friend.name}</td>
+                        <td>${friend.role}</td>
+                        <td><a href="mailto:${friend.contact}" class="contact">${friend.contact}</a></td>
+                        <td>
+                            <button class="btn" onclick="viewProfile('${friend.name}', '${friend.role}', '${friend.contact}')">View Profile</button>
+                        </td>
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        function viewProfile(name, role, contact) {
+            document.getElementById('modalFriendName').textContent = name;
+            document.getElementById('modalFriendRole').textContent = `Role: ${role}`;
+            document.getElementById('modalFriendContact').textContent = `Contact: ${contact}`;
+            document.getElementById('friendModal').style.display = "block";
+        }
+
+        // Close the modal
+        const modal = document.getElementById("friendModal");
+        const span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        populateFriendTable();
+    </script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Destinations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d1b2a; /* Dark navy background */
+            color: white; /* White text */
+        }
+
+        header {
+            background-color: #1b263b; /* Slightly lighter navy */
+            color: #f4f4f4; /* Off-white text */
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            max-width: 500px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            background-color: #1e293b;
+            color: white;
+        }
+
+        .search-bar button {
+            padding: 12px 20px;
+            background-color: #3f88c5; /* Bright blue */
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background-color: #266192; /* Darker blue */
+        }
+
+        .category {
+            margin-bottom: 40px;
+        }
+
+        .category h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #f4f4f4;
+        }
+
+        .package-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .package {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .package:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .package h3 {
+            font-size: 1.25rem;
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+
+        .package p {
+            margin: 10px 0;
+            color: #d1d5db;
+        }
+
+        .package .book-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3f88c5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        .package .book-button:hover {
+            background-color: #266192;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #1e293b;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            width: 80%;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 20px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .modal-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .modal-buttons .yes-button {
+            background-color: #3f88c5;
+            color: white;
+        }
+
+        .modal-buttons .yes-button:hover {
+            background-color: #266192;
+        }
+
+        .modal-buttons .no-button {
+            background-color: #f87171;
+            color: white;
+        }
+
+        .modal-buttons .no-button:hover {
+            background-color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Destinations</h1>
+    </header>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for a destination or package">
+            <button onclick="searchPackage()">Search</button>
+        </div>
+        <div id="travelCategories"></div>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Book Package</h3>
+            <p id="modalDetails"></p>
+            <div class="modal-buttons">
+                <button class="yes-button" onclick="confirmBooking()">Yes</button>
+                <button class="no-button" onclick="closeModal()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const categories = [
+            "Beach Destinations", "Mountain Escapes", "Cultural Tours", "Adventure Trips", "Luxury Retreats",
+            "City Breaks", "Wildlife Safaris", "Historical Sites", "Cruise Vacations", "Wellness Retreats",
+            "Family Getaways", "Romantic Honeymoons", "Budget Packages", "Road Trips", "Trekking Expeditions",
+            "Pilgrimage Tours", "Island Hopping", "Winter Wonderland", "Desert Adventures", "Festival Tours"
+        ];
+
+        const packages = categories.flatMap((category, index) => 
+            Array.from({ length: 5 }, (_, i) => ({
+                id: index * 5 + i + 1,
+                name: `${category} Package ${i + 1}`,
+                category,
+                description: `Enjoy an unforgettable experience with our ${category} Package ${i + 1}.`,
+                price: (Math.random() * 20000 + 5000).toFixed(2) + ' INR'
+            }))
+        );
+
+        function renderPackages(filter = '') {
+            const travelCategories = document.getElementById('travelCategories');
+            travelCategories.innerHTML = '';
+
+            const filteredPackages = filter
+                ? packages.filter(pkg => 
+                    pkg.name.toLowerCase().includes(filter.toLowerCase()) ||
+                    pkg.category.toLowerCase().includes(filter.toLowerCase())
+                )
+                : packages;
+
+            const grouped = filteredPackages.reduce((acc, pkg) => {
+                acc[pkg.category] = acc[pkg.category] || [];
+                acc[pkg.category].push(pkg);
+                return acc;
+            }, {});
+
+            for (const [category, items] of Object.entries(grouped)) {
+                const categoryHTML = document.createElement('div');
+                categoryHTML.className = 'category';
+
+                categoryHTML.innerHTML = `
+                    <h2>${category}</h2>
+                    <div class="package-list">
+                        ${items.map(pkg => `
+                            <div class="package">
+                                <h3>${pkg.name}</h3>
+                                <p>${pkg.description}</p>
+                                <p><strong>Price:</strong> ${pkg.price}</p>
+                                <button class="book-button" onclick="openModal('${pkg.name}', '${pkg.description}', '${pkg.price}')">Book</button>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+
+                travelCategories.appendChild(categoryHTML);
+            }
+        }
+
+        function searchPackage() {
+            const searchInput = document.getElementById('search').value;
+            renderPackages(searchInput);
+        }
+
+        function openModal(name, description, price) {
+            document.getElementById('modalTitle').textContent = name;
+            document.getElementById('modalDetails').textContent = `${description} Price: ${price}`;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function confirmBooking() {
+            alert('Package booked successfully!');
+            closeModal();
+        }
+
+        renderPackages();
+    </script>
+</body>
+</html>
