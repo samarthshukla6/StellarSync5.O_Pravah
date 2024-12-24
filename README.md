@@ -44,6 +44,9 @@ https://github.com/user-attachments/assets/4ac0a868-9187-40aa-88c7-5b05408ad9a8
 
 **Screen Recording**: 
 
+https://github.com/user-attachments/assets/88fa0289-6ff6-4c80-a39f-b5ae920ea5c5
+
+
 ---
 
 ### 5. Emotion Detection 😊🎧
